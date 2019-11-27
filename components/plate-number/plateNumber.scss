@@ -1,0 +1,81 @@
+/*
+ * @Author: 李磊 
+ * @Date: 2018-11-14 14:59:16 
+ * @Last Modified by: 李磊
+ * @Last Modified time: 2018-11-26 14:47:26
+ */
+/*宽度转换vw*/
+@function vww($number) {
+    @return ($number / 375)*750+rpx;
+}
+.plate-popup {
+    position: fixed;
+    z-index: 999;
+    background-color: #E3E2E7;
+    -webkit-box-shadow: 0 0 30upx rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30upx rgba(0, 0, 0, 0.1);
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    $height: vww(50);
+
+    //关闭
+    .plate-close {
+        width: 100%;
+        background: #FFFFFF;
+        line-height: vww(30);
+        font-size: vww(12);
+        text-align: right;
+        padding-right: vww(10);
+        color: #00A7EA;
+    }
+
+    //键盘主体内容-单行
+    .plate-popup-item {
+        margin: 0 auto;
+        overflow: hidden;
+        display: inline-block;
+        display: table;
+
+        &:last-child {
+            margin-bottom: 2vw;
+        }
+    }
+
+    //键盘主体内容-单个
+    .plate-popup-item-list {
+        float: left;
+        font-size: vww(14);
+        width: 8vw;
+        margin: 0 1vw;
+        margin-top: 2vw;
+        height: $height;
+        line-height: $height;
+        background: #FFFFFF;
+        border-radius: 5px;
+        color: #4A4A4A;
+
+        //删除键
+        &.del {
+            width: 14vw;
+            background: #C2CACC;
+            display: flex;
+
+            //删除键图片
+            image {
+                width: 50%;
+                height: 50%;
+                margin: 0 auto;
+                display: block;
+                vertical-align: middle;
+                align-self: center;
+            }
+        }
+
+        //特殊字符（港澳学）
+        &.special {
+            background: #EAECF8;
+        }
+    }
+}
